@@ -188174,6 +188174,24 @@ return {
 			[1]="silver_footprints_from_item"
 		}
 	},
+	[9999]={
+		lang={
+			English={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Critical Strike Chance is 5%"
+				}
+			}
+		},
+		stats={
+			[1]="override_unarmed_base_critical_strike_chance_to_5%"
+		}
+	},
 	["%_chance_to_blind_on_critical_strike"]=3613,
 	["%_chance_to_blind_on_critical_strike_while_you_have_cats_stealth"]=3689,
 	["%_chance_to_cause_bleeding_enemies_to_flee_on_hit"]=3140,
@@ -195979,5 +195997,6 @@ return {
 	["zombie_scale_+%"]=1986,
 	["zombie_slam_area_of_effect_+%"]=7484,
 	["zombie_slam_cooldown_speed_+%"]=7485,
-	["zombie_slam_damage_+%"]=7486
+	["zombie_slam_damage_+%"]=7486,
+	["override_unarmed_base_critical_strike_chance_to_5%"]=9999
 }

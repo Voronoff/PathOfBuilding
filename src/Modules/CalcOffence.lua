@@ -1092,7 +1092,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	activeSkill.conversionTable["Chaos"] = { mult = 1 }
 
-	-- Configure damage passes
+	-- Configure damage passes	
 	local passList = { }
 	if isAttack then
 		output.MainHand = { }
@@ -1106,6 +1106,9 @@ function calcs.offence(env, actor, activeSkill)
 			local source = copyTable(actor.weaponData1)
 			if critOverride and source.type and source.type ~= "None" then
 				source.CritChance = critOverride
+			end
+			if skillData.setUnarmedBaseCritChance then
+				source.CritChance = skillData.setUnarmedBaseCritChance
 			end
 			t_insert(passList, {
 				label = "Main Hand",

@@ -1248,6 +1248,10 @@ return {
 	skill("setOffHandBaseCritChance", nil),
 	value = 5,
 },
+["override_unarmed_base_critical_strike_chance_to_5%"] = {
+	skill("setUnarmedBaseCritChance", nil),
+	value = 5,
+},
 ["off_hand_local_minimum_added_physical_damage"] = {
 	skill("setOffHandPhysicalMin", nil),
 },
