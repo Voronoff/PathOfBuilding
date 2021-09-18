@@ -16,6 +16,19 @@ local realmList = {
 
 local influenceInfo = itemLib.influenceInfo
 
+local catalystIdList= {
+	["Quality (Attack Modifiers)"] = 1,
+	["Quality (Speed Modifiers)"] = 2,
+	["Quality (Life and Mana Modifiers)"] = 3,
+	["Quality (Caster Modifiers)"] = 4,
+	["Quality (Attribute Modifiers)"] = 5,
+	["Quality (Physical and Chaos Modifiers)"] = 6,
+	["Quality (Resistance Modifiers)"] = 7,
+	["Quality (Defense Modifiers)"] = 8,
+	["Quality (Elemental Modifiers)"] = 9,
+	["Quality (Critical Modifiers)"] = 10,
+}
+
 local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
 	self.ControlHost()
 	self.Control()
@@ -648,6 +661,9 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		for _, property in pairs(itemData.properties) do
 			if property.name == "Quality" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
+			elseif string.match(property.name, "Quality") then
+				item.catalystQuality= tonumber(property.values[1][1]:match("%d+"))
+				item.catalyst = catalystIdList[tostring(property.name)]
 			elseif property.name == "Radius" then
 				item.jewelRadiusLabel = property.values[1][1]
 			elseif property.name == "Limited to" then
