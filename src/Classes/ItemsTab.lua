@@ -423,21 +423,21 @@ holding Shift will put it in the second.]])
 		self:UpdateDisplayItemTooltip()
 	end
 	self.controls.displayItemSectionInfluence = new("Control", {"TOPLEFT",self.controls.displayItemSectionEnchant,"BOTTOMLEFT"}, 0, 0, 0, function()
-		return self.displayItem and self.displayItem.canBeInfluenced and 28 or 0
+		return self.displayItem and self.displayItem.canBeInfluenced and self.displayItem.crafted and 28 or 0
 	end)
 	self.controls.displayItemInfluence = new("DropDownControl", {"TOPLEFT",self.controls.displayItemSectionInfluence,"TOPRIGHT"}, 0, 0, 100, 20, influenceDisplayList, function(index, value)
 		local otherIndex = self.controls.displayItemInfluence2.selIndex
 		setDisplayItemInfluence({ index - 1, otherIndex - 1 })
 	end)
 	self.controls.displayItemInfluence.shown = function()
-		return self.displayItem and self.displayItem.canBeInfluenced
+		return self.displayItem and self.displayItem.canBeInfluenced and self.displayItem.crafted
 	end
 	self.controls.displayItemInfluence2 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemInfluence,"TOPRIGHT",true}, 8, 0, 100, 20, influenceDisplayList, function(index, value)
 		local otherIndex = self.controls.displayItemInfluence.selIndex
 		setDisplayItemInfluence({ index - 1, otherIndex - 1 })
 	end)
 	self.controls.displayItemInfluence2.shown = function()
-		return self.displayItem and self.displayItem.canBeInfluenced
+		return self.displayItem and self.displayItem.canBeInfluenced and self.displayItem.crafted
 	end
 
 	-- Section: Catalysts
